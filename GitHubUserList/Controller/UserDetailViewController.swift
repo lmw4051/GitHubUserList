@@ -51,8 +51,10 @@ class UserDetailViewController: UIViewController {
       self?.bioLabel.text = user.bio
       self?.cityLabel.text = user.location
       self?.linkLabel.attributedText = self?.attributedText(text: user.blog ?? "")
-      self?.siteAdminLabel.text = user.site_admin! ? "ADMIN":"STAFF"
-      self?.siteAdminLabel.backgroundColor = user.site_admin! ? #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1):#colorLiteral(red: 0.3685780466, green: 0.4235700369, blue: 0.8234271407, alpha: 1)
+      
+      guard let siteAdmin = user.site_admin else { return }
+      self?.siteAdminLabel.text = siteAdmin ? "ADMIN":"STAFF"
+      self?.siteAdminLabel.backgroundColor = siteAdmin ? #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1):#colorLiteral(red: 0.3685780466, green: 0.4235700369, blue: 0.8234271407, alpha: 1)
     }
     
     viewModel.onImageDownloaded = { [weak self] image in

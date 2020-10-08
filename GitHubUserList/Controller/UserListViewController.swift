@@ -35,12 +35,6 @@ class UserListViewController: UIViewController {
       DispatchQueue.main.async {
         MBProgressHUD.hide(for: self.view, animated: true)
         self.tableView.reloadData()
-        
-        if let indexPaths = self.tableView.indexPathsForVisibleRows {
-          self.tableView.reloadRows(at: indexPaths, with: .automatic)
-        } else {
-          self.tableView.reloadData()
-        }
       }
     }
   }
@@ -64,7 +58,7 @@ extension UserListViewController: UITableViewDataSource {
 extension UserListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-    if indexPath.row == viewModel.listCellVMs.count - 10 {
+    if indexPath.row == viewModel.listCellVMs.count - 1 {
       if viewModel.listCellVMs.count < 100 {
         page += 1
         viewModel.prepareRequest(page: page)
