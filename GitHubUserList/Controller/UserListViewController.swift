@@ -12,17 +12,20 @@ import Moya
 private let reuseIdentifier = "UserListCell"
 
 class UserListViewController: UIViewController {
+  // MARK: - Properties
   let viewModel: UserListViewModel = UserListViewModel()
   var page: Int = 1
   
   @IBOutlet weak var tableView: UITableView!
   
+  // MARK: - View Lifecycle
   override func viewDidLoad() {
-    super.viewDidLoad()
+    super.viewDidLoad()        
     viewModel.prepareRequest(page: page)
     bindViewModel()
   }
   
+  // MARK: - Help Methods
   func bindViewModel() {
     viewModel.onRequestEnd = { [weak self] in
       DispatchQueue.main.async {
@@ -38,6 +41,7 @@ class UserListViewController: UIViewController {
   }
 }
 
+// MARK: - UITableViewDataSource Methods
 extension UserListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.listCellVMs.count
@@ -51,6 +55,7 @@ extension UserListViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - UITableViewDelegate Methods
 extension UserListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if indexPath.row == viewModel.listCellVMs.count - 10 {
@@ -59,5 +64,16 @@ extension UserListViewController: UITableViewDelegate {
         viewModel.prepareRequest(page: page)
       }
     }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: false)
+    
+    let listCellVM = viewModel.listCellVMs[indexPath.row]
+    guard let login = listCellVM.loginStr else { return }
+    
+    let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "UserDetailVC") as! UserDetailViewController
+    detailVC.viewModel.loginStr = login
+    self.present(detailVC, animated: true, completion: nil)
   }
 }

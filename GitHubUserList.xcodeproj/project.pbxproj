@@ -18,6 +18,8 @@
 		548430BB252F3F540014AD06 /* UserListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548430BA252F3F540014AD06 /* UserListCellViewModel.swift */; };
 		548430BE252F41790014AD06 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548430BD252F41790014AD06 /* UserListCell.swift */; };
 		548430C1252F41B80014AD06 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548430C0252F41B80014AD06 /* UserListViewController.swift */; };
+		548430C4252F44B20014AD06 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548430C3252F44B20014AD06 /* UserDetailViewModel.swift */; };
+		548430C6252F463E0014AD06 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548430C5252F463E0014AD06 /* UserDetailViewController.swift */; };
 		B7AFFC11B1FEC130AA4291EE /* Pods_GitHubUserList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FDF0D28A05597F2A4E9CA3 /* Pods_GitHubUserList.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		548430BA252F3F540014AD06 /* UserListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCellViewModel.swift; sourceTree = "<group>"; };
 		548430BD252F41790014AD06 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		548430C0252F41B80014AD06 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		548430C3252F44B20014AD06 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		548430C5252F463E0014AD06 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		70ABD269D1FF43A836A8924A /* Pods-GitHubUserList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUserList.debug.xcconfig"; path = "Target Support Files/Pods-GitHubUserList/Pods-GitHubUserList.debug.xcconfig"; sourceTree = "<group>"; };
 		99A287F29B50FAB56FC12DEA /* Pods-GitHubUserList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUserList.release.xcconfig"; path = "Target Support Files/Pods-GitHubUserList/Pods-GitHubUserList.release.xcconfig"; sourceTree = "<group>"; };
 		D7FDF0D28A05597F2A4E9CA3 /* Pods_GitHubUserList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +111,7 @@
 			children = (
 				548430B8252F3F3A0014AD06 /* UserListViewModel.swift */,
 				548430BA252F3F540014AD06 /* UserListCellViewModel.swift */,
+				548430C3252F44B20014AD06 /* UserDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				548430C0252F41B80014AD06 /* UserListViewController.swift */,
+				548430C5252F463E0014AD06 /* UserDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,11 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548430C4252F44B20014AD06 /* UserDetailViewModel.swift in Sources */,
 				548430BE252F41790014AD06 /* UserListCell.swift in Sources */,
 				548430B9252F3F3A0014AD06 /* UserListViewModel.swift in Sources */,
 				5484308D252F39160014AD06 /* AppDelegate.swift in Sources */,
 				548430B3252F3E060014AD06 /* WebService.swift in Sources */,
 				548430C1252F41B80014AD06 /* UserListViewController.swift in Sources */,
+				548430C6252F463E0014AD06 /* UserDetailViewController.swift in Sources */,
 				548430B6252F3E4A0014AD06 /* User.swift in Sources */,
 				5484308F252F39160014AD06 /* SceneDelegate.swift in Sources */,
 				548430BB252F3F540014AD06 /* UserListCellViewModel.swift in Sources */,
