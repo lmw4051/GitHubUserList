@@ -9,3 +9,5 @@ Features
 3. Maintains a smooth scrolling experience
 4. Displays each GitHub user detail info by clicking cell
 5. By clicking GitHub user's link can present web page info
+
+Dont't forget to call pod install after cloning!
