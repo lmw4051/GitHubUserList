@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import MBProgressHUD
 
 private let reuseIdentifier = "UserListCell"
 
@@ -27,14 +28,18 @@ class UserListViewController: UIViewController {
   
   // MARK: - Help Methods
   func bindViewModel() {
+    MBProgressHUD.showAdded(to: view, animated: true)
     viewModel.onRequestEnd = { [weak self] in
+      guard let self = self else { return }
+      
       DispatchQueue.main.async {
-        self?.tableView.reloadData()
+        MBProgressHUD.hide(for: self.view, animated: true)
+        self.tableView.reloadData()
         
-        if let indexPaths = self?.tableView.indexPathsForVisibleRows {
-          self?.tableView.reloadRows(at: indexPaths, with: .automatic)
+        if let indexPaths = self.tableView.indexPathsForVisibleRows {
+          self.tableView.reloadRows(at: indexPaths, with: .automatic)
         } else {
-          self?.tableView.reloadData()
+          self.tableView.reloadData()
         }
       }
     }
@@ -58,10 +63,20 @@ extension UserListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate Methods
 extension UserListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
     if indexPath.row == viewModel.listCellVMs.count - 10 {
       if viewModel.listCellVMs.count < 100 {
         page += 1
         viewModel.prepareRequest(page: page)
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+      } else {
+        tableView.tableFooterView = nil
       }
     }
   }

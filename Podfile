@@ -7,4 +7,5 @@ target 'GitHubUserList' do
 
   # Pods for GitHubUserList
   pod 'Moya', '~> 13.0.1'
+  pod 'MBProgressHUD', '~> 1.2.0'
 end
