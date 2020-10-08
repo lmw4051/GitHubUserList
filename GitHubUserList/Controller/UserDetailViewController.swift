@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class UserDetailViewController: UIViewController {
   // MARK: - Properties
@@ -38,12 +39,18 @@ class UserDetailViewController: UIViewController {
   
   // MARK: - Helper Methods
   func configureUI() {
+    headerImageView.layer.cornerRadius = view.frame.size.width / 4
+    
+    let linkTap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
+    linkLabel.isUserInteractionEnabled = true;
+    linkLabel.addGestureRecognizer(linkTap)
+    
     viewModel.prepareRequest { [weak self] user in
       self?.fullNameLabel.text = user.name
       self?.loginNameLabel.text = user.login
       self?.bioLabel.text = user.bio
       self?.cityLabel.text = user.location
-      self?.linkLabel.text = user.blog ?? ""
+      self?.linkLabel.attributedText = self?.attributedText(text: user.blog ?? "")
       self?.siteAdminLabel.text = user.site_admin! ? "ADMIN":"STAFF"
       self?.siteAdminLabel.backgroundColor = user.site_admin! ? #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1):#colorLiteral(red: 0.3685780466, green: 0.4235700369, blue: 0.8234271407, alpha: 1)
     }
@@ -52,6 +59,24 @@ class UserDetailViewController: UIViewController {
       DispatchQueue.main.async {
         self?.headerImageView.image = image
       }
+    }
+  }
+  
+  func attributedText(text: String) -> NSAttributedString {
+    let attributedStr = NSAttributedString(string: "\(text)",
+      attributes: [.font: UIFont.systemFont(ofSize: 17),
+                   .foregroundColor: UIColor.link])
+    return attributedStr
+  }
+  
+  // MARK: - Selector Method
+  @objc func handleTapOnLabel() {
+    if let url = URL(string: linkLabel.attributedText?.string ?? "") {
+      let config = SFSafariViewController.Configuration()
+      config.entersReaderIfAvailable = true
+      
+      let vc = SFSafariViewController(url: url, configuration: config)
+      present(vc, animated: true)
     }
   }
 }
