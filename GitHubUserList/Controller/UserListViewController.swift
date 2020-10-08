@@ -50,3 +50,14 @@ extension UserListViewController: UITableViewDataSource {
     return cell
   }
 }
+
+extension UserListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row == viewModel.listCellVMs.count - 10 {
+      if viewModel.listCellVMs.count < 100 {
+        page += 1
+        viewModel.prepareRequest(page: page)
+      }
+    }
+  }
+}
