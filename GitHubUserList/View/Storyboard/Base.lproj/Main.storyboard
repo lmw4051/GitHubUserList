@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i3I-IG-9Np">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User List View Controller-->
+        <scene sceneID="dUh-YT-wT6">
+            <objects>
+                <viewController id="i3I-IG-9Np" customClass="UserListViewController" customModule="GitHubUserList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n5a-8E-v0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mtc-Mp-ea6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserListCell" id="0Mt-JN-tee" customClass="UserListCell" customModule="GitHubUserList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Mt-JN-tee" id="z1U-yC-ibS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jA2-Na-QYB">
+                                                    <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="FgX-vv-vjI"/>
+                                                        <constraint firstAttribute="width" constant="60" id="VSb-RV-wVr"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vik-Ra-A1Q">
+                                                    <rect key="frame" x="90" y="24" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7B-jH-bAf">
+                                                    <rect key="frame" x="90" y="49" width="70" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="VAy-JD-KpY"/>
+                                                        <constraint firstAttribute="width" constant="70" id="fyW-9M-j96"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A7B-jH-bAf" firstAttribute="top" secondItem="Vik-Ra-A1Q" secondAttribute="bottom" constant="4" id="L2H-1F-Zrp"/>
+                                                <constraint firstItem="jA2-Na-QYB" firstAttribute="centerY" secondItem="z1U-yC-ibS" secondAttribute="centerY" id="VJD-Ro-kVQ"/>
+                                                <constraint firstItem="Vik-Ra-A1Q" firstAttribute="leading" secondItem="jA2-Na-QYB" secondAttribute="trailing" constant="10" id="YVg-Cz-CCf"/>
+                                                <constraint firstItem="Vik-Ra-A1Q" firstAttribute="top" secondItem="jA2-Na-QYB" secondAttribute="top" constant="4" id="lAe-7g-kYh"/>
+                                                <constraint firstItem="jA2-Na-QYB" firstAttribute="leading" secondItem="z1U-yC-ibS" secondAttribute="leading" constant="20" id="qQR-20-gEI"/>
+                                                <constraint firstItem="A7B-jH-bAf" firstAttribute="leading" secondItem="jA2-Na-QYB" secondAttribute="trailing" constant="10" id="uca-Oh-Mob"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="jA2-Na-QYB" id="wYu-4n-SWr"/>
+                                            <outlet property="loginNameLabel" destination="Vik-Ra-A1Q" id="BPO-qZ-RnQ"/>
+                                            <outlet property="siteAdminLabel" destination="A7B-jH-bAf" id="1Nb-di-hrv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="i3I-IG-9Np" id="3Di-sb-4bP"/>
+                                    <outlet property="delegate" destination="i3I-IG-9Np" id="Hpj-QF-vcg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mtc-Mp-ea6" firstAttribute="top" secondItem="hRY-vJ-8cB" secondAttribute="top" id="93a-9n-1c6"/>
+                            <constraint firstItem="Mtc-Mp-ea6" firstAttribute="leading" secondItem="hRY-vJ-8cB" secondAttribute="leading" id="GUl-bG-q9A"/>
+                            <constraint firstItem="hRY-vJ-8cB" firstAttribute="trailing" secondItem="Mtc-Mp-ea6" secondAttribute="trailing" id="Xb3-yN-iVx"/>
+                            <constraint firstItem="hRY-vJ-8cB" firstAttribute="bottom" secondItem="Mtc-Mp-ea6" secondAttribute="bottom" id="uIB-Z2-nl3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hRY-vJ-8cB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zbd-Vb-HPy"/>
+                    <connections>
+                        <outlet property="tableView" destination="Mtc-Mp-ea6" id="u2S-sp-g2V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8b-ec-cDB" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
