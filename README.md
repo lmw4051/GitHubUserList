@@ -13,5 +13,4 @@ Features
 Dont't forget to call pod install after cloning!
 
 The screenshot of the app
-![Imgur](https://i.imgur.com/fjLFLib.png)
-![Imgur](https://i.imgur.com/laYHEMI.png)
+![image](https://github.com/lmw4051/GitHubUserList/blob/master/GitHubUserList.gif)
